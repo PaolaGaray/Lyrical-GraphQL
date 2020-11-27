@@ -7,8 +7,13 @@ const schema = require('./schema/schema');
 
 const app = express();
 
+
+const expressPlayground = require('graphql-playground-middleware-express')
+  .default
+
+
 // Replace with your mongoLab URI
-const MONGO_URI = '';
+
 if (!MONGO_URI) {
   throw new Error('You must provide a MongoLab URI');
 }
@@ -24,6 +29,11 @@ app.use('/graphql', expressGraphQL({
   schema,
   graphiql: true
 }));
+
+
+app.get('/playground', expressPlayground({ endpoint: '/graphql' }))
+
+
 
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
