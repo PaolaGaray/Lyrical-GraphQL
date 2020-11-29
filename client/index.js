@@ -1,3 +1,4 @@
+import './style/style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
@@ -18,7 +19,7 @@ const Root = () => {
         <Route path="/" component={App}>
           <IndexRoute component={SongList} />
         </Route>
-        <Route path="song/new" component={SongCreate}>
+        <Route path="songs/new" component={SongCreate}>
 
         </Route>
       </Router>
